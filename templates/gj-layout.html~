@@ -1,0 +1,109 @@
+
+<html>
+  <head>
+    {% block title %}
+    <title>Gentle Journey - Facials & Waxing</title>
+    {% endblock title %}
+
+    
+    <script type="text/javascript" 
+	    src="{{ url_for('static', filename='jquery-1.6.3.min.js') }}">
+    </script>
+    
+    <script type="text/javascript"
+	    src="{{ url_for('static', filename='main.js') }}">
+    </script>
+
+    <link href="http://fonts.googleapis.com/css?family=Delius+Swash+Caps" 
+	  rel="stylesheet" 
+	  type="text/css" />
+
+    <link 
+       href="http://fonts.googleapis.com/css?family=Arapey:400italic,400" 
+       rel="stylesheet" 
+       type="text/css" />
+
+    <link href="{{ url_for('static', filename='style.css') }}" 
+	  rel="stylesheet" 
+	  type="text/css" />
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="branding">
+	<hgroup>
+	  
+	  <div id="header-left">
+	    <h1 id="site-title">
+	      <a href="http://standyro.com/gentlejourney-new/" 
+		 title="Gentle Journey" 
+		 rel="home">Gentle Journey
+	      </a>
+	    </h1>
+	    <p id="site-description">Facials &amp; Waxing</p>
+	  </div>
+	  
+	  <div id="header-right">
+	    <h3 id="phone-number">310-876-2174</h3>
+	    <p id="address">710 Wilshire Blvd. #410,
+	      <br/>
+	      Santa Monica, CA 90401</p>
+	  </div>
+	  
+	</hgroup>
+      </header>
+
+      
+      <nav id="access" role="navigation">
+	<h1 class="assistive-text section-heading">Main menu</h1>
+	<div class="skip-link screen-reader-text">
+	  <a href="#content" title="Skip to content">Skip to content</a>
+	</div>
+	
+	<div class="menu-primary-navigation-container">
+	  <ul id="menu-primary-navigation" class="menu">
+	    <li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-10 current_page_item menu-item-13">
+	      <a href="{{ url_for('home') }}">
+		Home
+	      </a>
+	    </li>
+	    
+	    <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23">
+	      <a href="{{ url_for('services') }}">
+		Services
+	      </a>
+	    </li>
+	    <!--
+	    <li id="menu-item-90" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90">
+	      <a href="http://standyro.com/gentlejourney-new/products">Products</a>
+	      <ul class="sub-menu">
+		<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61">
+		  <a href="http://standyro.com/gentlejourney-new/products/jane-iredale">Jane Iredale</a>
+		</li>
+		<li id="menu-item-58" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58">
+		  <a href="http://standyro.com/gentlejourney-new/products/clayton-shagal">Clayton Shagal</a>
+		</li>
+	      </ul>
+	    </li>
+	    -->
+	    <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41">
+	      <a href="http://standyro.com/gentlejourney-new/about">
+		About
+	      </a>
+	    </li>
+	  </ul>
+	</div>	
+      </nav>
+      <div id="main">
+	<div id="primary">
+	  <div class="main-container">
+	    {% block content %}
+	    {% endblock content %}
+
+	  </div>
+	</div>
+
+      </div>
+    </div>
+  </body>
+</html>
