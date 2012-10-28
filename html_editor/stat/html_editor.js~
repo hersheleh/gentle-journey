@@ -1,0 +1,11 @@
+$(document).ready(function() {
+    $('body').delegate('button.save', 'click', function() {
+	var text = $('#some_text').html()
+	var tag = $('#some_text').attr('id')
+	$.post($SCRIPT_ROOT + '/update_text',
+	       { text : text,
+		 tag : tag },
+	       function(data) {}
+	      );
+    });
+});

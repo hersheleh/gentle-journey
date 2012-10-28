@@ -11,8 +11,7 @@ Aloha.settings = {
 }
 
 Aloha.ready( function() {
-    Aloha.jQuery('#phone-number').aloha();
-    Aloha.jQuery('#address').aloha();
+    Aloha.jQuery('.some_text').aloha();
 });
 
 

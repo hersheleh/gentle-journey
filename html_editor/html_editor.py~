@@ -1,0 +1,31 @@
+from flask import Blueprint, render_template, url_for, request
+from text_model import *
+
+html_editor = Blueprint('html_editor', __name__,
+                        template_folder='templates',
+                        static_folder='stat')
+
+
+@html_editor.route("/edit_example")
+def edit_example():
+    text = Text.query.all()
+    return render_template('edit.html', text=text)
+
+
+@html_editor.route('/update_text', methods=['POST'])
+def update_text():
+    if request.method == 'POST':
+        text = request.form['text']
+        tag = request.form['tag']
+        
+        text_query = Text.query.filter_by(tag=tag).first()
+        if (text_query != None):
+            text_query.text = text
+            db.session.commit()
+        
+        else:
+            text_entry = Text(text, tag)
+            db.session.add(text_entry)
+            db.session.commit()
+
+        return "success"

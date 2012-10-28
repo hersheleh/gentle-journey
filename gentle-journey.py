@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, session
+from html_editor.html_editor import *
 from accounts.accounts import *
 
 app = Flask('__name__')
@@ -6,6 +7,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gj.db'
 app.secret_key = 'giragesandcatsaredabomb'
 
 app.register_blueprint(accounts, url_prefix='/edit')
+app.register_blueprint(html_editor, url_prefix='/edit')
 db.init_app(app)
 
 

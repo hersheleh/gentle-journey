@@ -46,19 +46,46 @@ Use it to make something cool, have fun, and share what you've learned with othe
     height:500px;
 }*/
 
-.field {
-    background:none;
-    border-radius:5px;
-    border:1px solid #FFFFFF;
-    color:white;
-    //width:20px;
-    height: 25px;
-    
-    //font-weight:bold;
-    font-size:15px;
+input:focus {
+    outline:none;
 }
+
 label {
+    font-family: sans-serif;
+    font-style:italic;
+    color:white;
+    font-size:20px;
+}
+
+input.account {
+    background:none;
+    border:1px solid #FFFFFF;
+    border-radius:5px;
+    font-size:15px;
+    font-style:italic;
+    font-weight:bold;
+    padding:6px;
+    color:white;
+    cursor:pointer;
+}
+
+input.account:hover {
+    background-color:white;
+    color:black;
     
+}
+
+.field {
+    font-family: sans-serif
+    font-style:italic;
+    font-size:15px;
+    color:white;
+    background:none;
+    border:1px solid #FFFFFF;
+    border-radius:10px;
+    padding-left:7px;
+    padding-right:7px;
+
 }
 
 .entry-title {
@@ -639,8 +666,8 @@ img.alignright {
 }
 input[type=text],
 input#s {
-    margin: 0 1em 0 0;
-    /*width: 60%;*/
+    /*margin: 0 1em 0 0;
+    width: 60%;*/
 }
 textarea {
     width: 80%;
@@ -787,9 +814,6 @@ a.fill-div {
 .product_text a {
     color:black;
 }
-
-
-
 
 
 #shopping_cart {

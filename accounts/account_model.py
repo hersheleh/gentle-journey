@@ -1,19 +1,12 @@
 import os
 import hashlib
+from database import db
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 '''
 Account Model module contains the code for manipulating account data.
 This involves adding editing and deleting accounts
 '''
-
-db = SQLAlchemy()
-
-def create_app():
-    app = Flask(__name__)
-    db.init_app(app)
-    return app
-
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)

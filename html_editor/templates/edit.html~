@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}
+    </script>
+    <script type="text/javascript"
+	    src="{{ url_for('html_editor.static', filename='jquery-1.6.3.min.js') }}">
+    </script>
+
+    <script type="text/javascript"
+	    src="{{ url_for('html_editor.static', filename='aloha/lib/require.js') }}">
+    </script>
+    
+    <script type="text/javascript"
+	    src="{{ url_for('html_editor.static', filename='aloha/lib/aloha.js') }}">
+    </script>
+    
+    <script type="text/javascript"
+	    src="{{ url_for('html_editor.static', filename='aloha-config.js') }}">
+    </script>
+    <scritp type="text/javascript"
+	    src="{{ url_for('html_editor.static', filename='edit.js') }}">
+</script>
+    
+  </head>
+  <body>
+    {% for i in text %}
+
+    {% if i.tag == 'some_text' %}
+    <div class="some_text">
+      <p>{{ i.text }}</p>
+    </div>
+    {% endif %}
+    
+    {% else %}
+    <div class="some_text">
+      <p> You've got to add some text here </p>
+    </div>
+    {% endfor %}
+    <button class="save">save</button>
+  </body>
+</html>

@@ -10,28 +10,35 @@
 
 {% if "username" in session %}
 
-<script src="{{ url_for('static', 
-	     filename='js/aloha/lib/require.js') }}"> </script>
+<script src="{{ url_for('html_editor.static', 
+	     filename='aloha/lib/require.js') }}"> </script>
 
-<script src="{{ url_for('static', filename='js/aloha/lib/aloha.js') }}"
+<script src="{{ url_for('html_editor.static', 
+	     filename='aloha/lib/aloha.js') }}"
 	data-aloha-plugins=""> </script>
 
 <script type="text/javascript"
-	src="{{ url_for('static', filename='js/aloha-config.js') }}">
-
+	src="{{ url_for('html_editor.static', 
+	     filename='aloha-config.js') }}">
 </script>
 
 <script type="text/javascript"
 	src="{{ url_for('static', filename='edit-gj.js') }}">
 </script>
 
-<link href="{{ url_for('static', filename='js/aloha/css/aloha.css') }}"
+<link href="{{ url_for('html_editor.static', 
+	    filename='aloha/css/aloha.css') }}"
       rel="stylesheet"
       type="text/css" />
 
-<link href="{{ url_for('static', filename='custom-aloha.css') }}"
+<link href="{{ url_for('static', 
+	    filename='custom-aloha.css') }}"
       rel="stylesheet"
       type="text/css" />
+
+<script type="text/javascript"
+	src="{{ url_for('html_editor.static',
+	     filename='html_editor.js') }}"></script>
 
 {% endif %}
 

@@ -1,2 +1,0 @@
-Aloha.ready( function() {
-    Aloha.$('#content').aloha();

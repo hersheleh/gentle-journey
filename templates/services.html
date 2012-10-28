@@ -3,156 +3,45 @@
 {% block content %}
 <div class="content">
   <div class="services">
-
     <table>
       <tr>
 	<h1></h1>
-
 	<td>
 	  <div class="procedure">
-
 	    <h1 class="entry-title"> Facials</h1>
 	    <div class="service_content">
+	      {% for service in services %}
+
 	      <div class="service">
-		<div class="service-title">
-		  The Classic Facial 
-		  <span class="service-price">$70</span>
-		</div>
-		
+		<div class="service-title"> {{ service.title }}	</div>
+		<span class="service-price">{{ service.price }}</span>
 		<div class="service-body" hidden="true">
-		  The Classic Facial is perfect for normal to dry skin.
-		  It includes: a thorough 60 minute gentle cleansing; a
-		  mild exfoliation performed by expert hands
-		  a customized mask designed solely for your skin condition;
-		  and nourishing treatments chosen especially for your skin type
+		  {{ service.body }}
 		</div>
 	      </div>
-	      
-	      <div class="service">
-		<div class="service-title">
-		  The Deep Cleaning Facial
-		  <span class="service-price">$85</span>
-		</div>
-		<div class="service-body" hidden="true">
-		  75 minutes of intense relaxation and care
-		  cleansing,deep enzyme exfoliation with extractions,
-		  massage, customized mask, treatment gels or serums
-		  perfect for oily or acne prone skin. also an 
-		  incredible choice for anyone needing a deep cleaning
-		</div>
-	      </div>
-	      
-	      <div class="service">
-		<div class="service-title">
-		  Eye Treatment
-		  <span class="service-price">$15</span>
-		</div>
-		<div class="service-body" hidden="true">
-		  Nourishing and firming treatment for the 
-		  delicate area around the eyes
-		</div>
-	      </div>
-	      <div class="service">
-		<div class="service-title">
-		  Lifting Treatment
-		  <span class="service-price">$25</span>
-		</div>
-		<div class="service-body" hidden="true">
-		  Take your facial to the next level with 
-		  this mask for the face and neck which lifts, firms & tightens.
-		</div>
-	      </div>
-	      <div class="service">
-		<div class="service-title">
-		  Glycolic Acid Treatment 
-		  <span class="service-price">$25</span>
-		</div>
-		<div class="service-body" hidden="true">
-		  A deep exfoliation that improves the appearance of
-		  wrinkles, acne scarring, & overall skin texture.
-		</div>
-	      </div>
+	      {% else %}
+	      No Services here
+	      {% endfor %}
 	    </div>
 	  </div>
-	</td>
-	<td>
-	</td>
-
 
 	<td>
 	  <div class="procedure">
-	    
 	    <h1 class="entry-title">Waxing</h1>
 	    
 	    <div class="service_content">
-	      <div class="procedure-right">
-		
-		<div class="service">
-		  <div class="service-title">
-		    Full Leg & Bikini 
-		    <span class="service-price">$60</span>
-		  </div>
-		</div>
-		
-		<div class="service">
-		  <div class="service-title">
-		    Upper Leg & Bikini  
-		    <span class="service-price">$40</span>
-		  </div>
-		</div>
-		
-		<div class="service">
-		  <div class="service-title">Lower Legs 
-		    <span class="service-price">$30</span>
-		  </div>
-		  
-		</div>
-		<div class="service">
-		  <div class="service-title">Bikini
-		    <span class="service-price">$25</span>
-		  </div>
-		</div>
-		
-		<div class="service">
-		  <div class="service-title">Arms
-		    <span class="service-price">$30</span>
-		  </div>
-		</div>
-		<div class="service">
-		  <div class="service-title">Under Arms
-		    <span class="service-price">$20</span>
-		  </div>
-		</div>
-		<div class="service">
-		  <div class="service-title">Eyebrows 
-		    <span class="service-price">$20</span>
-		  </div>
-		</div>
-		<div class="service">
-		  <div class="service-title">Lips
-		    <span class="service-price">$15</span>
-		    5</div>
-		</div>
-		<div class="service">
-		  <div class="service-title">Eyebrows and Lips 
-		    <span class="service-price">$25</span>
-		  </div>
-		</div>
-		<div class="service">
-		  <div class="service-title">Back
-		    <span class="service-price">$50</span>
-		  </div>
-		</div>
-		<div class="service">
-		  <div class="service-title">Ears
-		    <span class="service-price">$20</span>
-		  </div>
-		</div>
-	      </div>	      
-	    </div>
+	      {% for service in services %}
+	      <div class="service">
+		<div class="service-title"> {{ service.title }}</div>
+		<span class="service-price">{{ service.price }}</span>
+	      </div>
+	      {% else %}
+	      No Services here
+	      {% endfor %}
+	    </div>	      
 	  </div>
 	</td>
-	
+
 	<td>
 	  <div class="procedure">
 	    <h1 class="entry-title">Microdermabration</h1>
