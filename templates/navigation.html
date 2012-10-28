@@ -1,0 +1,47 @@
+{% extends "conditional-imports.html" %}
+{% block nav %}
+
+<nav id="access" role="navigation">
+  <h1 class="assistive-text section-heading">Main menu</h1>
+  <div class="skip-link screen-reader-text">
+    <a href="#content" title="Skip to content">Skip to content</a>
+  </div>
+  
+  <div class="menu-primary-navigation-container">
+    <ul id="menu-primary-navigation" class="menu">
+      <li id="menu-item-13" >
+	<a href="{{ url_for('index') }}">
+	  Home
+	</a>
+      </li>
+      
+      <li id="menu-item-23" >
+	<a href="{{ url_for('services') }}">
+	  Services
+	</a>
+      </li>
+      <!--
+	  <li id="menu-item-90">
+	    <a href="http://standyro.com/gentlejourney-new/products">
+	      Products
+	    </a>
+	    <ul class="sub-menu">
+	      <li id="menu-item-61">
+		<a href=""> Jane Iredale</a>
+	      </li>
+	      <li id="menu-item-58">
+		<a href="">Clayton Shagal</a>
+	      </li>
+	    </ul>
+	  </li>
+	  -->
+      <li id="menu-item-41" >
+	<a href="">
+	  About
+	</a>
+      </li>
+    </ul>
+  </div>	
+</nav>
+
+{% endblock nav %}

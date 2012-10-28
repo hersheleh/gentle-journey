@@ -1,12 +1,12 @@
-{% extends "navigation.html" %}
-
+{% extends "gj-layout.html" %}
 {% block content %}
 <form action="{{ url_for('accounts.login') }}" method="post">
-  <p>Username: 
+  <p>
+    <label>Username:</label>
     <input class="field" type="text" name="username" /></p>
-  <p>Passowrd: 
+  <p>
+    <label>Password:</label>
     <input class="field" type="password" name="password"></p>
   <p><input type="submit" value="Login"></p>
 </form>
 {% endblock content %}
-

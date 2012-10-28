@@ -8,27 +8,13 @@
 
 {% endif %}
 
-<link href="http://fonts.googleapis.com/css?family=Delius+Swash+Caps" 
-      rel="stylesheet" 
-      type="text/css" />
-
-<link 
-   href="http://fonts.googleapis.com/css?family=Arapey:400italic,400" 
-   rel="stylesheet" 
-   type="text/css" />
-
-<link href="{{ url_for('static', filename='style.css') }}" 
-      rel="stylesheet" 
-      type="text/css" />
-
 {% if "username" in session %}
 
 <script src="{{ url_for('static', 
 	     filename='js/aloha/lib/require.js') }}"> </script>
 
 <script src="{{ url_for('static', filename='js/aloha/lib/aloha.js') }}"
-	data-aloha-plugins="common/ui,
-			    common/format"> </script>
+	data-aloha-plugins=""> </script>
 
 <script type="text/javascript"
 	src="{{ url_for('static', filename='js/aloha-config.js') }}">
