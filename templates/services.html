@@ -1,5 +1,6 @@
 {% extends "navigation.html" %}
 
+
 {% block content %}
 <div class="content">
   <div class="services">
@@ -9,16 +10,44 @@
 	<td>
 	  <div class="procedure">
 	    <h1 class="entry-title"> Facials</h1>
+	    {% if "username" in session %}
+	    <form action="{{ url_for('html_editor.edit_service') }}" 
+		  method="POST">
+		<input class="field" type="text" 
+		       name="title" value="Title"/>
+		<input class="field" type="text" 
+		       name="price" value="Price"/>
+		<textarea class="field" rows="2" 
+			  name="body" />Description</textarea>
+	      <input type="hidden" name="tag" value="facial" />
+	      <input type="hidden" name="action" value="add" />
+	      <input type="submit" value="add"/>
+	    </form>
+	    {% endif %}
+	    
 	    <div class="service_content">
-	      {% for service in services %}
-
-	      <div class="service">
-		<div class="service-title"> {{ service.title }}	</div>
-		<span class="service-price">{{ service.price }}</span>
-		<div class="service-body" hidden="true">
-		  {{ service.body }}
+	      {% for facial in facials %}
+	      <div class="service" data-id="{{ facial.id }}">
+		<div class="service-head">
+		  <div class="service-title">{{ facial.title }}</div>
+		  <span class="service-price">{{ facial.price }}</span>
 		</div>
+		<div class="service-body" hidden="true">
+		  {{ facial.body }}
+		  {% if "username" in session %}
+		  {% endif %}
+		</div>
+		{% if "username" in session %}
+		<div>
+		  <button data-id="{{ facial.id }}" 
+			  class="edit" style="float:right;">save</button>
+		  
+		  <button data-id="{{ facial.id }}" 
+			  style="float:left;">delete</button>
+		</div>
+		{% endif %}
 	      </div>
+
 	      {% else %}
 	      No Services here
 	      {% endfor %}
@@ -30,10 +59,10 @@
 	    <h1 class="entry-title">Waxing</h1>
 	    
 	    <div class="service_content">
-	      {% for service in services %}
+	      {% for wax in waxing %}
 	      <div class="service">
-		<div class="service-title"> {{ service.title }}</div>
-		<span class="service-price">{{ service.price }}</span>
+		<div class="service-title"> {{ wax.title }}</div>
+		<span class="service-price">{{ wax.price }}</span>
 	      </div>
 	      {% else %}
 	      No Services here

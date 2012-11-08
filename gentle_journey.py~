@@ -4,7 +4,7 @@ from accounts.accounts import *
 
 app = Flask('__name__')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///gj.db'
-app.secret_key = 'giragesandcatsaredabomb'
+app.secret_key = 'giraffesandcatsaredabomb'
 
 app.register_blueprint(accounts, url_prefix='/edit')
 app.register_blueprint(html_editor, url_prefix='/edit')
@@ -18,7 +18,8 @@ def index():
 
 @app.route("/services")
 def services():
-    return render_template("services.html")
+    services = Service.query.all()
+    return render_template("services.html", services=services)
 
 @app.route("/about")
 def about():
@@ -36,4 +37,3 @@ def edit():
 if __name__ == '__main__':
     app.debug = True
     app.run()
-

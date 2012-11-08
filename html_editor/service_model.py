@@ -8,8 +8,10 @@ class Service(db.Model):
     price = db.Column(db.String())
     tag = db.Column(db.String())
     
-    def __init__(self, title=None, body=None, price=None, tag):
+    def __init__(self, title=None, body=None, price=None, tag=None):
         self.title = title
         self.body = body
         self.price = price
         self.tag = tag
+        
+    

@@ -49,6 +49,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 input:focus {
     outline:none;
 }
+textarea:focus{
+    outline:none;
+}
 
 label {
     font-family: sans-serif;
@@ -95,24 +98,30 @@ input.account:hover {
 .service {
     padding:10px;
 }
-.service-title {
-    /*color:#DDECF9;
-    /color:#4C98E1;*/
-    color:#DDECF9;
-    cursor:pointer;
+.service-head {
     font-family: 'Arapey', serif;
     font-size:22px;
     font-weight:bold;
     font-style:italic;
-
+    color:#DDECF9;
+    cursor:pointer;
+    height:20px;
+    width:260px;
+    
+}
+.service-title {
+    float:left;
+    //width:240px;
 }
 
-.service-title:hover {
-    //color:#3D7AB4;
+.service-head:hover {
     color:white;    
 }
 
 .service-price {
+    height:10px;
+    width:35px;
+    display:inline-block;
     float:right;
 }
 
