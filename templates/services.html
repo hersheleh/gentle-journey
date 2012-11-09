@@ -1,6 +1,5 @@
 {% extends "navigation.html" %}
 
-
 {% block content %}
 <div class="content">
   <div class="services">
@@ -30,7 +29,7 @@
 	      <div class="service" data-id="{{ facial.id }}">
 		<div class="service-head">
 		  <div class="service-title">{{ facial.title }}</div>
-		  <span class="service-price">{{ facial.price }}</span>
+		  <span class="service-price">${{ facial.price }}</span>
 		</div>
 		<div class="service-body" hidden="true">
 		  {{ facial.body }}
@@ -62,7 +61,7 @@
 	      {% for wax in waxing %}
 	      <div class="service">
 		<div class="service-title"> {{ wax.title }}</div>
-		<span class="service-price">{{ wax.price }}</span>
+		<span class="service-price">${{ wax.price }}</span>
 	      </div>
 	      {% else %}
 	      No Services here
