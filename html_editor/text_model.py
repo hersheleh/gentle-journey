@@ -10,6 +10,4 @@ class Text(db.Model):
         self.text = text
         self.tag = tag
 
-    def edit(text):
-        self.text = text
         

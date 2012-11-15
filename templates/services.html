@@ -3,88 +3,145 @@
 {% block content %}
 <div class="content">
   <div class="services">
-    <table>
-      <tr>
-	<h1></h1>
-	<td>
-	  <div class="procedure">
-	    <h1 class="entry-title"> Facials</h1>
-	    {% if "username" in session %}
-	    <form action="{{ url_for('html_editor.edit_service') }}" 
-		  method="POST">
-		<input class="field" type="text" 
-		       name="title" value="Title"/>
-		<input class="field" type="text" 
-		       name="price" value="Price"/>
-		<textarea class="field" rows="2" 
-			  name="body" />Description</textarea>
-	      <input type="hidden" name="tag" value="facial" />
-	      <input type="hidden" name="action" value="add" />
-	      <input type="submit" value="add"/>
-	    </form>
-	    {% endif %}
-	    
-	    <div class="service_content">
-	      {% for facial in facials %}
-	      <div class="service" data-id="{{ facial.id }}">
-		<div class="service-head">
-		  <div class="service-title">{{ facial.title }}</div>
-		  <span class="service-price">${{ facial.price }}</span>
-		</div>
-		<div class="service-body" hidden="true">
-		  {{ facial.body }}
-		  {% if "username" in session %}
-		  {% endif %}
-		</div>
-		{% if "username" in session %}
-		<div>
-		  <button data-id="{{ facial.id }}" 
-			  class="edit" style="float:right;">save</button>
-		  
-		  <button data-id="{{ facial.id }}" 
-			  style="float:left;">delete</button>
-		</div>
-		{% endif %}
-	      </div>
+    
+    <div class="procedure">
+      <h1 class="entry-title"> Facials</h1>
+      
+      {% if "username" in session %}
+      <div class="service-form">
+	<form action="{{ url_for('html_editor.edit_service') }}" 
+	      method="POST">
 
-	      {% else %}
-	      No Services here
-	      {% endfor %}
-	    </div>
-	  </div>
-
-	<td>
-	  <div class="procedure">
-	    <h1 class="entry-title">Waxing</h1>
-	    
-	    <div class="service_content">
-	      {% for wax in waxing %}
-	      <div class="service">
-		<div class="service-title"> {{ wax.title }}</div>
-		<span class="service-price">${{ wax.price }}</span>
-	      </div>
-	      {% else %}
-	      No Services here
-	      {% endfor %}
-	    </div>	      
-	  </div>
-	</td>
-
-	<td>
-	  <div class="procedure">
-	    <h1 class="entry-title">Microdermabration</h1>
-	    <div class="service_content">
-	      <div class="service">
-		<div class="service-title">
-		  
-		</div>
-	      </div>
-	    </div>
-	  </div> 
+	  <input class="field" type="text" 
+		 name="title" value="Title"/>
 	  
-	</td>
-      <tr>
-    </table>
-  </div>
+	  <input class="field" type="text" 
+		 name="price" value="Price"/>
+
+	  <textarea class="field" rows="2" 
+		    name="body" >Description</textarea>
+	  
+	  <input type="hidden" name="tag" value="facial" />
+	  <input type="hidden" name="action" value="add" />
+	  <input type="submit" value="add"/>
+
+	</form>
+      </div>
+      {% endif %}
+
+      <div class="service_content">
+	{% for facial in facials %}
+	<div class="service" data-id="{{ facial.id }}">
+	  <div class="service-head">
+	    <div class="service-title">{{ facial.title | safe }}
+	    </div>
+	    <span class="service-price">{{ facial.price | safe }}
+	    </span>
+	  </div>
+	  <div class="service-body" hidden="true">
+	    {{ facial.body | safe }}
+	  </div>
+	  {% if "username" in session %}
+	  <div class="manage-buttons">
+	    <button data-id="{{ facial.id }}" 
+		    class="facial-delete">delete</button>
+
+	    <button data-id="{{ facial.id }}" 
+		    class="facial-edit" 
+		    style="float:right;">save</button>
+	  </div>
+	  {% endif %}
+	</div>
+
+	{% else %}
+	No Services here
+	{% endfor %}
+      </div>
+    </div>
+
+
+    <div class="procedure">
+      <h1 class="entry-title">Waxing</h1>
+
+      {% if "username" in session %}
+      <div class="service-form">
+	<form action="{{ url_for('html_editor.edit_service') }}" 
+	      method="POST">
+	  <input class="field" type="text" 
+		 name="title" value="Title"/>
+	  <input class="field" type="text" 
+		 name="price" value="Price"/>
+
+	  <input type="hidden" name="tag" value="waxing" />
+	  <input type="hidden" name="action" value="add" />
+	  <input type="submit" value="add"/>
+	</form>
+      </div>
+      {% endif %}
+
+      
+      <div class="service_content">
+	{% for wax in waxing %}
+	<div class="service" data-id="{{ wax.id }}">
+	  <div class="service-head">
+	    <div class="service-title">{{ wax.title | safe }}</div>
+	    <span class="service-price">
+	      {{ wax.price | safe }}
+	    </span>
+	  </div>
+	  
+	  {% if "username" in session %}
+	  <div class="manage-buttons">
+	    <button data-id="{{ wax.id }}" 
+		    class="wax-edit" 
+		    style="float:right;">save</button>
+	    
+	    <button data-id="{{ wax.id }}" 
+		    class="wax-delete"
+		    style="float:left;">delete</button>
+	  </div>
+	  {% endif %}
+
+	</div>
+
+	{% else %}
+	No Services here
+	{% endfor %}
+      </div>	      
+    </div>
+
+
+
+    <div class="procedure">
+      <h1 class="entry-title">Microdermabration</h1>
+      <div class="service_content">
+	<p class="information">
+	  The Gentle Journey diamond head microdermabrasion system is a non-invasive, non-surgical natural method of encouraging skin renewal through a grit-free diamond peel method.
+	</p>
+	<p class="information">
+	  The wand gently removes the dead layers of the skin. Left untreated, layers of dead skin build up and turn into wrinkles, imperfections, flaws and a generally rough feeling that can undermine confidence and your youthful glow.
+	</p>
+	<div class="service-head">
+	  <div class="service-title">
+	    Per Treatment 
+	  </div>
+	  <span class="service-price">
+	    $120
+	  </span>
+	</div>
+	<div class="service-head">
+	  <div class="service-title">
+	    Series of Ten Treatments 
+	  </div>
+	  <span class="service-price">
+	    $960.00 
+	  </span>
+	</div>
+
+      </div>
+
+    </div>
+  </div> 
+</div>
 </div>
 {% endblock content %}

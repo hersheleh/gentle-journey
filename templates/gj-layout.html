@@ -47,14 +47,37 @@
 	  </div>
 	  
 	  <div id="header-right">
-	    <h3 id="phone-number">310-876-2174</h3>
-	    <p id="address">710 Wilshire Blvd. #410,
-	      <br/>
-	      Santa Monica, CA 90401</p>
+	    <h3 id="phone-number">
+	      {{ text["phone-number"] | safe }}
+	    </h3>
+	    {% if "username" in session %}
+	    <button class="save" data-tag="phone-number">
+	      save phone number
+	    </button>
+	    {% endif %}
+
+	    <p id="address">
+	      {{ text["address"] | safe }}
+	    </p>
+	    
+	    {% if "username" in session %}
+	    <button class="save" data-tag="address">
+	      save address
+	    </button>
+
+	    {% endif %}
+
+	    <div class="appointment"
+		 hidden="true">Make an Appointment for <br />
+	      <span class="reminder"></span> today
+	      <br \> call the number above
+	      <span class="flash" hidden="true">Do it Now!</span>
+	    </div>
+
 	  </div>
-	  
 	</hgroup>
       </header>
+
       {% block nav %}
       {% endblock nav %}
       <div id="main">

@@ -1,3 +1,4 @@
+import traceback
 from flask import Blueprint, render_template, url_for, request, redirect
 from text_model import *
 from service_model import *
@@ -7,10 +8,20 @@ html_editor = Blueprint('html_editor', __name__,
                         static_folder='stat')
 
 
+def get_all_text():
+    text_content = {}
+    all_text = Text.query.all()
+
+    for item in all_text:
+        text_content[item.tag] = item.text
+
+    return text_content
+
 @html_editor.route("/edit_example")
 def edit_example():
     text = Text.query.all()
     return render_template('edit.html', text=text)
+
 
 
 @html_editor.route('/update_text', methods=['POST'])
@@ -33,29 +44,60 @@ def update_text():
 
 @html_editor.route('/edit_service', methods=['POST'])
 def edit_service():
-    title = request.form['title']
-    body = request.form['body']
-    price = request.form['price']
-    tag = request.form['tag']
-    action = request.form['action']
+    if (request.method == 'POST'):
+        title = ""
+        body = ""
+        price = ""
+        tag = "notag"
+        action =""
+        
+        try:
+            title = request.form['title']
+        except:
+            pass
+
+        try:
+            body = request.form['body']
+        except:
+            pass
+                
+        try:
+            price = request.form['price']
+        except:
+            pass
+
+        try:
+            tag = request.form['tag']
+        except:
+            pass
+        
+        try:
+            action = request.form['action']
+        except:
+            pass
+
+        if (action == "add"):
+            service = Service(title,body,price,tag)
+            db.session.add(service)
+            db.session.commit()
+        
+        elif (action == 'edit'):
+            id = request.form['id']
+            service = Service.query.filter_by(id=id).first()
+            service.title = title
+            service.body = body
+            service.price = price
+            db.session.commit()
+        
+        elif (action == 'delete'):
+            id = request.form['id']
+            service = Service.query.filter_by(id=id).first()
+            db.session.delete(service)
+            db.session.commit()
+
+        else:
+            print "No action specified"
+        
+
     
-    if (action == "add"):
-        service = Service(title,body,price,tag)
-        db.session.add(service)
-        db.session.commit()
-        
-    elif (action == 'edit'):
-        id = request.form['id']
-        service = Service.query.filter_by(id=id).first()
-        service.title = title
-        service.body = body
-        service.price = price
-        db.session.commit()
-        
-    elif(action == 'delete'):
-        id = request.form['id']
-        sevice = Service.query.filter_by(id=id).first()
-        db.session.delete(service)
-        db.session.commit()
-        
     return redirect(url_for('services'))

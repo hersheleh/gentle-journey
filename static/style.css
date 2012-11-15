@@ -46,6 +46,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
     height:500px;
 }*/
 
+.manage-buttons {
+    height:15px;
+    width:200px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
 input:focus {
     outline:none;
 }
@@ -94,9 +101,13 @@ input.account:hover {
 .entry-title {
     color:white;
 }
-
+.services {
+    margin-top:35px;
+    width:1000px;
+}
 .service {
-    padding:10px;
+    //padding-top:px;
+    padding-bottom:25px;
 }
 .service-head {
     font-family: 'Arapey', serif;
@@ -106,12 +117,12 @@ input.account:hover {
     color:#DDECF9;
     cursor:pointer;
     height:20px;
-    width:260px;
+    width:286px;
     
 }
 .service-title {
     float:left;
-    //width:240px;
+    min-width:25px;
 }
 
 .service-head:hover {
@@ -119,8 +130,9 @@ input.account:hover {
 }
 
 .service-price {
-    height:10px;
-    width:35px;
+    max-height:10px;
+    min-width:35px;
+    max-width:150px;
     display:inline-block;
     float:right;
 }
@@ -140,23 +152,35 @@ input.account:hover {
     opacity:0.8;
 }
 
+.service-form {
+    height:150px;
+}
 .procedure {
+    display:inline-table;
     width:300px;
     height:600px;
     padding:10px;
 }
 
-/*.procedure-left{
-    float:left
+.information {
+    position:relative;
+    color:black;
+    font-family: 'Arapey', serif;
+    font-style:italic;
+    width:300px;
+    font-size:20px;
+    font-weight:bold;
+    padding:6px;
+
+    background:white;
+    border-radius:15px;
+    opacity:0.8;
 }
-.procedure-right {
-    float:right;
-}*/
 
 
 /* ###############################################################  */
 body {
-    font-family: sans-serif;
+    font-family: 'Arapey', serif;
     background:#4c98e1 url('../static/images/bg.jpg') top center no-repeat;
 }
 
@@ -233,7 +257,9 @@ h1 {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     height:auto;
-    
+    font-size:1.1em;
+    font-family: Georgia, serif;
+    font-style:italic;
 }
 
 #main .widget-area {
@@ -328,8 +354,13 @@ hgroup {
 #address {
     font-family: 'american_typewriter_bqregular', Georgia, serif;
     color:white;
+    font-weight:bold;
     margin:0 10px 0 0;
     font-size:1em;
+    min-height:10px;
+    max-height:40px;
+    min-width:50px;
+    max-width:212px;
 }
 
 #phone-number {
@@ -339,6 +370,26 @@ hgroup {
     font-style:normal !important;
     margin:0px 0px 0px 0px;
     padding-top: 20px;
+    min-height:10px;
+    min-width:30px;
+}
+
+.appointment {
+    position:absolute;
+    text-align:center;
+    color:black;
+    font-family: 'Arapey', serif;
+    font-style:italic;
+    width:270px;
+    font-size:1.3em;
+    font-weight:bold;
+    padding:8px;
+    background:white;
+    border-radius:15px;
+    opacity:0.8;
+}
+.reminder {
+    font-size:24px;
 }
 
 #respond {

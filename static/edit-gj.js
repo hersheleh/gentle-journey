@@ -3,7 +3,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $('input, textarea').focus(function() {
+    $('input[type=text], textarea').focus(function() {
 	if(this.value == this.defaultValue) {
 	    $(this).val('');
 	}
