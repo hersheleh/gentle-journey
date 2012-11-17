@@ -30,7 +30,7 @@ class User(db.Model):
     
     def authenticate(self, username, password):
         if (self.username == username):
-            if (self.encrypt(password, self.salt) == self.password):
+            if (self.encrypt(password,self.salt) == self.password):
                 return True
             
         return False

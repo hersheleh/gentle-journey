@@ -1,0 +1,24 @@
+{% extends "navigation.html" %}
+
+{% block content %}
+
+<div class="about-all">
+  <div class="about-set">
+    <div class="about">
+      <p>
+	Lia Katz is a talented Esthetician who is pasionate about skin care. She has been implementing her gentle, quick, and painless waxing technique for over ten years. Her method is relaxing and leaves your skin feeling smooth and healthy. Her Facials will leave you feeling refreshed as you travel on a gentle journey in the calming, soundproof treatment room. Lia has an almost encyclopedic knowledge of the Epidermal Layer of the skin and will give you the guidence you need to have healthy and young looking skin.
+      </p>
+    </div>
+    <img class="profile" src="{{ url_for('static', filename='images/lia.jpg') }}"/>
+  </div>
+
+
+  <div class="about-set">
+    <div class="about">
+      Gentle Journey is located in the center of Santa Monica right off the I-10 on Pico Blvd. Free Parking is available in the adjacent lot. 
+    </div>
+    <iframe class="profile" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?ie=UTF8&amp;q=gentle+journey&amp;fb=1&amp;gl=us&amp;hq=gentle+journey&amp;hnear=0x80c2c75ddc27da13:0xe22fdf6f254608f4,Los+Angeles,+CA&amp;cid=0,0,3347871937353824114&amp;ll=34.020373,-118.467566&amp;spn=0.006295,0.006295&amp;t=m&amp;iwloc=A&amp;output=embed"></iframe>
+
+  </div>
+</div>
+{% endblock content %}

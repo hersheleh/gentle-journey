@@ -35,7 +35,7 @@ def edit():
     if 'username' in session:
         return redirect(url_for('index'))
     else:
-        return redirect(url_for('accounts.login'))
+        return render_template('login.html',text=get_all_text())
 
 
 if __name__ == '__main__':

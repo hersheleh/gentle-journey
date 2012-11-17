@@ -26,11 +26,9 @@ def login():
         if(check_user):
 
             if (check_user.authenticate(user, password)):
-
                 session['username'] = user
-                return redirect(url_for('index'))
 
-    return render_template("login.html")
+    return redirect(url_for('index'))
                 
 
 @accounts.route('/logout', methods=['GET'])

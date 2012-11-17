@@ -10,9 +10,9 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#main').delegate(".service","click", function() {
 	// Show the appointment message
-	var serv = $(this).find('.service-title').html();
+	/*var serv = $(this).find('.service-title').html();
 	$('.reminder').html(serv);
-	$('.appointment').hide().fadeIn(800)
+	$('.appointment').hide().fadeIn(800)*/
 
 	
 	if($(this).children('.service-body').is(':hidden')) {
