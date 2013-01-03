@@ -1,10 +1,11 @@
+/* This javascript file is loaded when a normal user uses the site
+   It contains code that creates effects on click.
+   Particularily for animating the services page
+*/
 $(document).ready(function() {
 		$('#front-page').fadeIn(1000);
 });
 
-/*$(document).ready(function() {
-    $('.service-body').attr('hidden', 'true');
-});*/
 
 
 $(document).ready(function() {

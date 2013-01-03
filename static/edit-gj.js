@@ -1,3 +1,8 @@
+/* This file contains code that works on text fields. 
+   They change the value of the text-area / field to display 
+   instructions. 
+*/
+
 $(document).ready(function() {
     $('.service-body').removeAttr('hidden');
 });
